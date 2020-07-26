@@ -25,11 +25,20 @@
                     <v-list-item-subtitle>${{userBonusCash}}</v-list-item-subtitle>
                 </v-list-item-content>
             </v-list-item>
+
+            <v-list-item two-line>
+                <v-list-item-content>
+                    <v-list-item-title>수정 시간</v-list-item-title>
+                    <v-list-item-subtitle>{{updateUserDate}}</v-list-item-subtitle>
+                </v-list-item-content>
+            </v-list-item>
         </v-card>
     </v-container>
 </template>
 
 <script>
+    import { eventBus } from "@/utils/eventBus";
+
     export default {
         props: {
             userID: {
@@ -45,7 +54,13 @@
         data () {
             return {
                 name : "SelectUser",
+                updateUserDate : null,
             }
+        },
+        created() {
+            eventBus.$on("updateEmit", date => {
+                this.updateUserDate = date
+            })
         },
     }
 </script>

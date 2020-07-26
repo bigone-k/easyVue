@@ -13,6 +13,8 @@
 </template>
 
 <script>
+    import { eventBus } from "@/utils/eventBus";
+
     export default {
         props : {
             parentUser : {
@@ -36,8 +38,10 @@
         },
         methods: {
             Save() {
-                console.log(this.updateUser);
                 this.$emit('UpdateUser', this.updateUser);
+
+                //eventBus.$emit("updateEmit", new Date());
+                eventBus.updateEmit(new Date());
             }
         }
     }
