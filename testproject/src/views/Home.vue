@@ -13,13 +13,15 @@
 
   export default {
     name: 'App',
-
     components: {
         User,
     },
-
     data: () => ({
       //
     }),
+    created() {
+        // console.log(this.$route.query.userID);
+        console.log(this.$route.params.userID);
+    }
   };
 </script>

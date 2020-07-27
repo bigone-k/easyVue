@@ -31,12 +31,7 @@
     import SelectUser from "./SelectUser";
 
     export default {
-
         components: {SelectUser, UpdateUser},
-        comments: {
-            UpdateUser
-            ,SelectUser
-        },
         data () {
             return {
                 name: 'User',
